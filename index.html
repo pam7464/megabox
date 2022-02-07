@@ -133,6 +133,7 @@
 
         .header{
             position:relative;
+            border:1px solid rgba(255,255,255,0.5);
             padding:10px 0;
             background-color:#0e090a;
             color:#fff;
@@ -166,7 +167,6 @@
             margin-right:0;
         }
         .nav>ul>li{
-            position:relative;
             margin-right:100px;            
             font-size:1.6em;
         }
@@ -175,10 +175,45 @@
         }
         .sub-nav{
             position:absolute;
-            top:100%;
+            left:0;
+            right:0;
+            top:calc(100% + 1px);
+            display:none;
+            padding:10px 0;
             background-color:#0e090a;
             color:#fff;
         }
+        .sub-nav ul{
+            display:flex;
+            flex-flow:row nowrap;                        
+            max-width:1200px;
+            margin:0 auto;
+        }
+        .theater-sub-nav ul{
+            padding-left:240px;
+        }
+        .event-sub-nav ul{
+            justify-content:flex-end;
+            padding-right:210px;
+        }
+        .benefit-sub-nav ul{
+            justify-content:flex-end;
+        }
+
+
+        .sub-nav li{
+            margin-right:20px;
+            font-size:1rem;
+            opacity:0.5;
+        }
+        .sub-nav li:last-child{
+            margin-right:0;
+        }
+        .sub-nav li:hover{
+            opacity:1;
+        }
+
+
     </style>
 </head>
 <body>
@@ -241,47 +276,57 @@
                     <ul>
                         <li>
                             <a href="#">영화</a>
-                            <ul class="sub-nav">
-                                <li><a href="#">전체영화</a></li>
-                                <li><a href="#">N스크린</a></li>
-                                <li><a href="#">큐레이션</a></li>
-                                <li><a href="#">무비포스트</a></li>
-                            </ul>
+                            <div class="sub-nav movie-sub-nav">
+                                <ul>
+                                    <li><a href="#">전체영화</a></li>
+                                    <li><a href="#">N스크린</a></li>
+                                    <li><a href="#">큐레이션</a></li>
+                                    <li><a href="#">무비포스트</a></li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="#">예매</a>
-                            <ul class="sub-nav">
-                                <li><a href="#">빠른예매</a></li>
-                                <li><a href="#">상영시간표</a></li>
-                                <li><a href="#">더 부티크 프라이빗 예매</a></li>
-                            </ul>
+                            <div class="sub-nav ticket-sub-nav">
+                                <ul>
+                                    <li><a href="#">빠른예매</a></li>
+                                    <li><a href="#">상영시간표</a></li>
+                                    <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                                </ul>
+                            </div>                                
                         </li>
                         <li>
                             <a href="#">극장</a>
-                            <ul class="sub-nav">
-                                <li><a href="#">전체극장</a></li>
-                                <li><a href="#">특별관</a></li>
-                            </ul>
+                            <div class="sub-nav theater-sub-nav">
+                                <ul>
+                                    <li><a href="#">전체극장</a></li>
+                                    <li><a href="#">특별관</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                     <ul>
                         <li>
                             <a href="#">이벤트</a>
-                            <ul class="sub-nav">
-                                <li><a href="#">진행중 이벤트</a></li>
-                                <li><a href="#">지난 이벤트</a></li>
-                                <li><a href="#">당첨자발표</a></li>
-                            </ul>
+                            <div class="sub-nav event-sub-nav">
+                                <ul>
+                                    <li><a href="#">진행중 이벤트</a></li>
+                                    <li><a href="#">지난 이벤트</a></li>
+                                    <li><a href="#">당첨자발표</a></li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="#">스토어</a>
                         </li>
                         <li>
                             <a href="#">혜택</a>
-                            <ul class="sub-nav">
-                                <li><a href="#">메가박스 멤버십</a></li>
-                                <li><a href="#">제휴/할인</a></li>
-                            </ul>
+                            <div class="sub-nav benefit-sub-nav">
+                                <ul>
+                                    <li><a href="#">메가박스 멤버십</a></li>
+                                    <li><a href="#">제휴/할인</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -340,6 +385,21 @@
         $('.btn-banner-top-close').on({
             'click':function(){
                 $('.banner-top').slideUp();
+            }
+        })
+
+        // sub-nav call
+        $('.nav>ul>li').on({
+            'mouseover':function(){
+                $('.sub-nav').css('display','none');
+                $(this).children('.sub-nav').css('display','block');
+            }
+        });
+
+        // sub nav close
+        $('.sub-nav').on({
+            'mouseout':function(){
+                $(this).css('display','none');
             }
         })
     </script>
