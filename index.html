@@ -28,6 +28,7 @@
             width:100%;
             max-width:1200px;
             margin:0 auto;
+            padding:0 20px;
         }
         .sec-tit{
           font-size:2em;
@@ -115,6 +116,9 @@
         .banner-top{
             position:relative;            
         }
+        .banner-top .container{
+            padding:0;
+        }
         .banner-top .img-box{
             position:relative;
         }
@@ -123,12 +127,14 @@
             position:absolute;
             right:0;
             bottom:0;
+            z-index:100;
             
             width:18px;
             height:18px;
             text-align:center;
             line-height:16px;
             background-color:#999;
+            cursor:pointer;
         }
 
         .header{
@@ -154,6 +160,10 @@
             display:flex;
             flex-flow:row nowrap;
             justify-content:space-between;
+        }
+        .btn-mo-quick{
+            display:none;
+            font-size:1.4em;
         }
         .quick-nav>ul,.nav>ul{
             display:flex;
@@ -188,6 +198,7 @@
             flex-flow:row nowrap;                        
             max-width:1200px;
             margin:0 auto;
+            padding:0 20px;
         }
         .theater-sub-nav ul{
             padding-left:240px;
@@ -214,6 +225,54 @@
         }
 
 
+
+        @media (max-width:1200px){
+            .btn-banner-top-close{
+                bottom:auto;
+                top:0;
+            }  
+        }
+
+        @media (max-width:1024px){
+            h1{               
+                left:20px;                
+                transform:translate(0,-50%);
+            }
+            .quick-nav,.nav{
+                justify-content:flex-end;
+            }
+            .quick-nav>ul:first-child{
+                margin-right:20px;
+            }
+            .nav>ul:first-child{margin-right:60px;}
+            .nav>ul>li{margin-right:60px;}
+            .sub-nav ul{
+                justify-content: flex-end;
+            }
+            .movie-sub-nav ul{
+                padding-right:450px;
+            }
+            .ticket-sub-nav ul{
+                padding-right:350px;
+            }
+            .theater-sub-nav ul{
+                padding-right:330px;
+            }
+        }
+
+        @media (max-width:840px){
+            h1{
+                left:50%;
+                transform:translate(-50%,-50%);
+            }
+            .quick-nav{
+                position:absolute;
+                left:20px;
+            }
+            .btn-mo-quick{display:block;}
+            .quick-nav ul{display:none;}
+            
+        }
     </style>
 </head>
 <body>
@@ -261,6 +320,9 @@
                     </div>
                 </h1>
                 <div class="quick-nav">
+                    <div class="btn-mo-quick">
+                        <i class="fas fa-calendar-minus"></i>
+                    </div>
                     <ul>
                         <li><a href="#">VIP LOUNGE</a></li>
                         <li><a href="#">멤버십</a></li>
@@ -276,7 +338,7 @@
                     <ul>
                         <li>
                             <a href="#">영화</a>
-                            <div class="sub-nav movie-sub-nav">
+                            <div class="sub-nav movie-sub-nav" style="display:block">
                                 <ul>
                                     <li><a href="#">전체영화</a></li>
                                     <li><a href="#">N스크린</a></li>
