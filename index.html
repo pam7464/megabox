@@ -38,6 +38,11 @@
             right:0;
             bottom:0;
             z-index:1;
+            
+            padding:2px 6px;
+            background-color:#000;
+            color:#fff;
+            opacity:0.3;
         }
 
         .skip-menu a{
@@ -110,6 +115,9 @@
         .banner-top{
             position:relative;            
         }
+        .banner-top .img-box{
+            position:relative;
+        }
         
         .btn-banner-top-close{
             position:absolute;
@@ -121,6 +129,55 @@
             text-align:center;
             line-height:16px;
             background-color:#999;
+        }
+
+        .header{
+            position:relative;
+            padding:10px 0;
+            background-color:#0e090a;
+            color:#fff;
+        }
+        h1{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+        }
+        h1 span{
+            display:none;
+        }
+        .quick-nav{
+            margin-bottom:10px;
+        }
+        .quick-nav,.nav{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:space-between;
+        }
+        .quick-nav>ul,.nav>ul{
+            display:flex;
+            flex-flow:row nowrap;
+        }
+        .quick-nav>ul>li{
+            margin-right:20px;
+            opacity:0.5;
+        }
+        .quick-nav>ul>li:last-child{
+            margin-right:0;
+        }
+        .nav>ul>li{
+            position:relative;
+            margin-right:100px;            
+            font-size:1.6em;
+        }
+        .nav>ul>li:last-child{
+            margin-right:0;
+        }
+        .sub-nav{
+            position:absolute;
+            top:100%;
+            background-color:#0e090a;
+            color:#fff;
         }
     </style>
 </head>
@@ -151,6 +208,7 @@
             <div class="container">
                 <div class="img-box">
                     <a href="#"><img src="./images/banner-top.jpg" alt="현대해상 바로가기"></a>
+                    <div class="ad">AD</div>
                 </div>
             </div>
             <div class="btn-banner-top-close">
@@ -158,7 +216,76 @@
             </div>
         </section>
         <header class="header">
-            <div class="container"></div>
+            <div class="container">
+                <h1>
+                    <span>메가박스</span>
+                    <div class="img-box">
+                        <a href="./index.html">
+                            <img src="./images/logo-white.png" alt="메가박스">
+                        </a>
+                    </div>
+                </h1>
+                <div class="quick-nav">
+                    <ul>
+                        <li><a href="#">VIP LOUNGE</a></li>
+                        <li><a href="#">멤버십</a></li>
+                        <li><a href="#">고객센터</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">빠른예매</a></li>
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <a href="#">영화</a>
+                            <ul class="sub-nav">
+                                <li><a href="#">전체영화</a></li>
+                                <li><a href="#">N스크린</a></li>
+                                <li><a href="#">큐레이션</a></li>
+                                <li><a href="#">무비포스트</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">예매</a>
+                            <ul class="sub-nav">
+                                <li><a href="#">빠른예매</a></li>
+                                <li><a href="#">상영시간표</a></li>
+                                <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">극장</a>
+                            <ul class="sub-nav">
+                                <li><a href="#">전체극장</a></li>
+                                <li><a href="#">특별관</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#">이벤트</a>
+                            <ul class="sub-nav">
+                                <li><a href="#">진행중 이벤트</a></li>
+                                <li><a href="#">지난 이벤트</a></li>
+                                <li><a href="#">당첨자발표</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">스토어</a>
+                        </li>
+                        <li>
+                            <a href="#">혜택</a>
+                            <ul class="sub-nav">
+                                <li><a href="#">메가박스 멤버십</a></li>
+                                <li><a href="#">제휴/할인</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </header>
         <section class="sec movie-list">
             <div class="container"></div>
