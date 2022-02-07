@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 각종메타 -->
 
-    
+
 
     <!-- favicon -->
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
@@ -20,14 +20,79 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-        :root{font-family: 'Noto Sans KR', sans-serif;}
+        :root{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size:14px;
+        }
+        .container{
+            width:100%;
+            max-width:1200px;
+            margin:0 auto;
+        }
+        .sec-tit{
+          font-size:2em;
+          color:#352461;  
+        }
+        .ad{
+            position:absolute;
+            right:0;
+            bottom:0;
+            z-index:1;
+        }
 
+        .skip-menu a{
+            position:fixed;
+            left:50%;
+            top:-100%;
+            z-index:9999;
+            transform:translateX(-50%);
 
+            display:inline-block;
+            width:200px;
+            border:2px solid #fff;
+            padding:10px;
+            border-radius:6px;
+            background-color:#352461;
+            color:#fff;
+            text-align:center;
+        }
+        .skip-menu a:focus{
+            top:0%;
+        }
 
+        .modal-popup{
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            z-index:9998;
+            background-color:rgba(0,0,0,0.3);
+        }
+        .modal-container{
+            
+        }
     </style>
 </head>
 <body>
-    
+    <section class="sec skip-menu">
+        <a href="#">본문 바로가기</a>
+        <a href="#">푸터 바로가기</a>
+    </section>
+
+    <section class="sec modal-popup">
+        <div class="modal-container">
+            <div class="img-box">
+                <a href="#">
+                    <img src="./images/movie-list01.jpg" alt="나일강의 죽음 바로가기">
+                </a>
+            </div>
+            <div class="modal-cookie">
+                <label><input type="checkbox">하루동안 보지 않기</label>
+            </div>
+        </div>
+    </section>
+
     
 
 
