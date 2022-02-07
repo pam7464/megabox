@@ -24,6 +24,10 @@
             font-family: 'Noto Sans KR', sans-serif;
             font-size:14px;
         }
+        .wrap,body{
+            width:100vw;
+            overflow:hidden;
+        }
         .container{
             width:100%;
             max-width:1200px;
@@ -161,9 +165,10 @@
             flex-flow:row nowrap;
             justify-content:space-between;
         }
-        .btn-mo-quick{
+        .btn-mo-quick,.btn-mo-nav{
             display:none;
-            font-size:1.4em;
+            font-size:1.6em;  
+            cursor: pointer;         
         }
         .quick-nav>ul,.nav>ul{
             display:flex;
@@ -261,16 +266,61 @@
         }
 
         @media (max-width:840px){
+            .wrap{
+                position:fixed;
+                left:0;
+                right:0;
+                top:0;
+                bottom:auto;
+                transition:0.3s;
+            }
+            .wrap.show-quick{
+                left:50%;
+                right:-50%;
+            }
+            .wrap.show-nav{
+                left:-50%;
+                right:50%;
+            }
+            .banner-top{display:none;}
+            .header{padding:20px 0;}
+            .header .container{
+                display:flex;
+                justify-content:space-between;
+            }
+            
             h1{
                 left:50%;
                 transform:translate(-50%,-50%);
             }
             .quick-nav{
-                position:absolute;
-                left:20px;
+                position:fixed;
+                left:-50%;
+                right:100%;
+                top:0;
+                bottom:0;
+                background-color:#000;
+                transition:0.3s;
             }
-            .btn-mo-quick{display:block;}
-            .quick-nav ul{display:none;}
+            
+            .quick-nav.show-quick{
+                left:0;
+                right:50%;
+            }
+            .nav{
+                position:fixed;
+                left:100%;
+                right:-50%;
+                top:0;
+                bottom:0;
+                background-color:#000;
+                transition:0.3s;
+            }
+            .nav.show-nav{
+                left:50%;
+                right:0;
+            }
+            .btn-mo-quick,.btn-mo-nav{display:block;}
             
         }
     </style>
@@ -319,10 +369,10 @@
                         </a>
                     </div>
                 </h1>
+                <div class="btn-mo-quick">
+                    <i class="fas fa-calendar-minus"></i>
+                </div>
                 <div class="quick-nav">
-                    <div class="btn-mo-quick">
-                        <i class="fas fa-calendar-minus"></i>
-                    </div>
                     <ul>
                         <li><a href="#">VIP LOUNGE</a></li>
                         <li><a href="#">멤버십</a></li>
@@ -333,6 +383,9 @@
                         <li><a href="#">회원가입</a></li>
                         <li><a href="#">빠른예매</a></li>
                     </ul>
+                </div>
+                <div class="btn-mo-nav">
+                    <i class="fas fa-bars"></i>
                 </div>
                 <div class="nav">
                     <ul>
@@ -462,6 +515,21 @@
         $('.sub-nav').on({
             'mouseout':function(){
                 $(this).css('display','none');
+            }
+        })
+
+        // mo quick menu call
+        $('.btn-mo-quick').on({
+            'click':function(){               
+                $('.wrap,.quick-nav').toggleClass('show-quick');
+            }
+        })
+
+
+        // mo nav call
+        $('.btn-mo-nav').on({
+            'click':function(){               
+                $('.wrap,.nav').toggleClass('show-nav');
             }
         })
     </script>
