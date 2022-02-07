@@ -107,6 +107,21 @@
         .btn-modal-close:hover{
             color:#000;
         }
+        .banner-top{
+            position:relative;            
+        }
+        
+        .btn-banner-top-close{
+            position:absolute;
+            right:0;
+            bottom:0;
+            
+            width:18px;
+            height:18px;
+            text-align:center;
+            line-height:16px;
+            background-color:#999;
+        }
     </style>
 </head>
 <body>
@@ -133,7 +148,14 @@
 
     <section class="sec wrap">
         <section class="banner-top">
-            <div class="container"></div>
+            <div class="container">
+                <div class="img-box">
+                    <a href="#"><img src="./images/banner-top.jpg" alt="현대해상 바로가기"></a>
+                </div>
+            </div>
+            <div class="btn-banner-top-close">
+                <i class="fas fa-times"></i>
+            </div>
         </section>
         <header class="header">
             <div class="container"></div>
@@ -186,6 +208,13 @@
         }else{
             $('.modal-popup').css('display','block');
         }
+
+        // banner top close
+        $('.btn-banner-top-close').on({
+            'click':function(){
+                $('.banner-top').slideUp();
+            }
+        })
     </script>
 </body>
 </html>
