@@ -526,7 +526,7 @@
     <!-- swiper Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.0.3/swiper-bundle.min.js" integrity="sha512-+1MtN0rwSlEnZo0agG99mCQChlBtfe8hyHItwWtgiD33mWvaNVZkZB9yX2S92z5HgDg1+EcitjutZejbHUcZAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        // 모달닫기
+        // modal close event
         $('.btn-modal-close').on({
             'click':function(){
                 $('.modal-popup').css('display','none');
@@ -542,14 +542,14 @@
             $('.modal-popup').css('display','block');
         }
 
-        // banner top close
+        // banner top close event
         $('.btn-banner-top-close').on({
             'click':function(){
                 $('.banner-top').slideUp();
             }
         })
 
-        // sub-nav call
+        // sub-nav call event
         $('.nav>ul>li').on({
             'mouseover':function(){
                 $('.sub-nav').css('display','none');
@@ -557,14 +557,14 @@
             }
         });
 
-        // sub nav close
+        // sub nav close event
         $('.sub-nav').on({
             'mouseout':function(){
                 $(this).css('display','none');
             }
         })
 
-        // mo quick menu call
+        // mo quick menu call event
         $('.btn-mo-quick').on({
             'click':function(){               
                 $('.wrap,.quick-nav').toggleClass('show-quick');
@@ -572,11 +572,17 @@
         })
 
 
-        // mo nav call
+        // mo nav call event
         $('.btn-mo-nav').on({
             'click':function(){               
                 $('.wrap,.nav').toggleClass('show-nav');
             }
+        })
+
+        // window resize event
+        $(window).resize(function(){
+            let winWidth = $(this).width();
+            
         })
     </script>
 </body>
