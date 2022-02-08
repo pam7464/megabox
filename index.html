@@ -28,6 +28,9 @@
             width:100vw;
             overflow:hidden;
         }
+        .wrap>.sec{
+            padding:40px 0 80px;
+        }
         .container{
             width:100%;
             max-width:1200px;
@@ -35,8 +38,12 @@
             padding:0 20px;
         }
         .sec-tit{
-          font-size:2em;
-          color:#352461;  
+            margin-bottom:20px;
+            font-size:2em;
+            color:#352461;  
+        }
+        .sec-tit-light{
+            color:#fff;
         }
         .ad{
             position:absolute;
@@ -143,6 +150,7 @@
 
         .header{
             position:relative;
+            z-index:1000;
             border-bottom:1px solid rgba(255,255,255,0.5);
             padding:10px 0;
             background-color:#0e090a;
@@ -229,9 +237,18 @@
             opacity:1;
         }
 
+
+        .movie-list{
+            position:relative;
+            z-index:999;
+
+        }
         .bg-box{
             overflow:hidden;
-            position:relative;
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
             height:600px;
         }
         .bg-box img{
@@ -253,7 +270,35 @@
             background:url('/images/patten.png') repeat left top;
             opacity:0.1;
         }
-        
+        .movie-list .container{
+            position:relative;
+            z-index:1001;
+        }
+        .movie-list .list-tit ul{
+            display:flex;
+            justify-content:center;
+        }
+        .movie-list .list-tit ul li{
+            width:15%;
+            border:1px solid #352461;
+            border-right:none;
+            padding:22px 0;
+            background-color:#fff;
+            font-weight:500;
+            font-size:1.2em;
+            text-align:center;
+            color:#352461;
+            cursor: pointer;
+        }
+
+        .movie-list .list-tit ul li:hover,
+        .movie-list .list-tit ul li.active{            
+            background-color:#352461;
+            color:#fff;
+        }
+        .movie-list .list-tit ul li:last-child{
+            border-right:1px solid #352461;
+        }
         
 
 
@@ -290,6 +335,30 @@
             .theater-sub-nav ul{
                 padding-right:330px;
             }
+            .movie-list .list-tit ul{
+                justify-content:flex-start;
+                border-bottom:1px solid rgba(255,255,255,0.3);
+            }
+            .movie-list .list-tit ul li,
+            .movie-list .list-tit ul li:last-child,
+            .movie-list .list-tit ul li:hover,
+            .movie-list .list-tit ul li.active
+            {
+                width:auto;
+                margin-right:20px;
+                border:none;
+                padding:0 0 10px;
+                background-color:transparent;
+                color:rgba(255,255,255,0.5);
+            }
+
+            .movie-list .list-tit ul li:hover,
+            .movie-list .list-tit ul li.active{
+                border-bottom:2px solid #fff;
+                color:rgba(255,255,255,1);
+            }
+
+
         }
 
         @media (max-width:840px){
@@ -458,7 +527,7 @@
                     <ul>
                         <li>
                             <a href="#">영화</a>
-                            <div class="sub-nav movie-sub-nav" style="display:block">
+                            <div class="sub-nav movie-sub-nav">
                                 <ul>
                                     <li><a href="#">전체영화</a></li>
                                     <li><a href="#">N스크린</a></li>
@@ -519,6 +588,15 @@
                 <img src="./images/movie-list03.jpg" alt="배경이미지">
             </div>
             <div class="container">
+                <h2 class="sec-tit sec-tit-light">영화예매</h2>
+                <div class="list-tit">
+                    <ul>
+                        <li class="active">박스오피스</li>
+                        <li>상영예정작</li>
+                        <li>필름소사이어티</li>
+                        <li>클레식소사이어티</li>
+                    </ul>
+                </div>
 
             </div>
         </section>
@@ -609,6 +687,14 @@
         $(window).resize(function(){
             let winWidth = $(this).width();
 
+        })
+
+        // movie selector event
+        $('.movie-list .list-tit ul li').on({
+            'click':function(){
+                $('.movie-list .list-tit ul li').removeClass('active');
+                $(this).addClass('active');
+            }
         })
     </script>
 </body>
