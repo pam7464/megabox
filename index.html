@@ -1313,7 +1313,7 @@
                     </article>
                     <!-- 상영예정작끝 -->
                     <!-- 필름소사이어티 -->
-                    <article class="flim">
+                    <article class="film">
                         <!-- Slider main container -->
                         <div class="swiper">
                             <!-- Additional required wrapper -->
@@ -2013,7 +2013,11 @@
         $('.movie-list .list-tit ul li').on({
             'click':function(){
                 $('.movie-list .list-tit ul li').removeClass('active');
+                $('.movie-list article').removeClass('active');
                 $(this).addClass('active');
+                let acIdx = $('.movie-list .list-tit ul li').index(this);
+                $('.movie-list article').eq(acIdx).addClass('active');
+                
             }
         })
 
@@ -2040,6 +2044,31 @@
                 },
             },
         });
+
+        
+        
+        
+        let expImg = $('.movie-exp img');
+        let filmImg = $('.film img');
+        let clasicImg = $('.clasic img');
+
+        setList(expImg,'exp');
+        setList(filmImg,'film');
+        setList(clasicImg,'clasic');
+        
+
+
+        function setList(target,stSrc){
+            for(let cnt=0;cnt<target.length;cnt++){
+                if(cnt<9){
+                    $(target).eq(cnt).attr('src','./images/' + stSrc + '-list0' + (cnt+1) + '.jpg');
+                }else{
+                    $(target).eq(cnt).attr('src','./images/'+ stSrc + '-list' + (cnt+1) + '.jpg');
+                }
+            }
+        }
+
+        
     </script>
 </body>
 </html>
