@@ -143,7 +143,7 @@
 
         .header{
             position:relative;
-            border:1px solid rgba(255,255,255,0.5);
+            border-bottom:1px solid rgba(255,255,255,0.5);
             padding:10px 0;
             background-color:#0e090a;
             color:#fff;
@@ -229,6 +229,12 @@
             opacity:1;
         }
 
+        
+        
+        .movie-list{
+            height:1000px;
+        }
+
 
 
         @media (max-width:1200px){
@@ -294,11 +300,14 @@
                 transform:translate(-50%,-50%);
             }
             .quick-nav{
+                flex-direction:column;
+                justify-content:flex-start;
                 position:fixed;
                 left:-50%;
                 right:100%;
                 top:0;
                 bottom:0;
+                padding:30px 20px;
                 background-color:#000;
                 transition:0.3s;
             }
@@ -307,6 +316,22 @@
                 left:0;
                 right:50%;
             }
+            
+            .quick-nav>ul:first-child{
+                order:2;
+                flex-direction:column;
+            }            
+            .quick-nav>ul:first-child>li{
+                margin-bottom:20px;
+                font-size: 1.4em;
+                opacity:1;
+            }
+            .quick-nav>ul:last-child{
+                flex-wrap:wrap;                
+                order:1;
+                margin-bottom:30px;
+            }           
+            
             .nav{
                 position:fixed;
                 left:100%;
