@@ -229,11 +229,32 @@
             opacity:1;
         }
 
-        
-        
-        .movie-list{
-            height:1000px;
+        .bg-box{
+            overflow:hidden;
+            position:relative;
+            height:600px;
         }
+        .bg-box img{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            width:180%;
+            filter:blur(100px);
+        }
+        .bg-box::after{
+            content:'';
+            display:block;
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background:url('/images/patten.png') repeat left top;
+            opacity:0.1;
+        }
+        
+        
 
 
 
@@ -494,7 +515,12 @@
             </div>
         </header>
         <section class="sec movie-list">
-            <div class="container"></div>
+            <div class="bg-box">
+                <img src="./images/movie-list03.jpg" alt="배경이미지">
+            </div>
+            <div class="container">
+
+            </div>
         </section>
         <section class="sec benefit">
             <div class="container"></div>
@@ -582,7 +608,7 @@
         // window resize event
         $(window).resize(function(){
             let winWidth = $(this).width();
-            
+
         })
     </script>
 </body>
