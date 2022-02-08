@@ -333,11 +333,14 @@
             }           
             
             .nav{
+                flex-direction:column;
+                justify-content: flex-start;
                 position:fixed;
                 left:100%;
                 right:-50%;
                 top:0;
                 bottom:0;
+                padding:30px 20px;
                 background-color:#000;
                 transition:0.3s;
             }
@@ -345,6 +348,16 @@
                 left:50%;
                 right:0;
             }
+            .nav>ul{
+                flex-direction:column;
+            }
+            .nav>ul>li{
+                margin-bottom:20px;
+            }
+            .sub-nav{
+                position:static;
+            }
+
             .btn-mo-quick,.btn-mo-nav{display:block;}
             
         }
