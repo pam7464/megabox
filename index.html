@@ -503,7 +503,10 @@
             width:30.67669172932331%;            
         }
         .benefit-ad{
+            position:relative;
             width:37.72727272727273%;
+            border-radius:6px;
+            overflow:hidden;
         }
         .benefit-banner01 a,.benefit-banner02 a{
             display:none;
@@ -688,7 +691,7 @@
 
         @media (max-width:840px){
             .wrap{
-                position:fixed;
+                position:absolute;
                 left:0;
                 right:0;
                 top:0;
@@ -782,8 +785,14 @@
             }
 
             .btn-mo-quick,.btn-mo-nav{display:block;}
-            
+            .benefit-list{
+                width:100%;
+            }
+            .benefit-ad{
+                display:none;
+            }
         }
+       
 
         @media (max-width:490px){
             .movie-list .list-tit ul li,            
@@ -801,6 +810,12 @@
             .movie-list a i,
             .movie-list .in i{
                 font-size:1.6em;
+            }
+            .benefit-banner01{
+                width:100%;
+            }
+            .benefit-banner02{
+                display:none;
             }
         }
     </style>
