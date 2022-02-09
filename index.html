@@ -20,6 +20,11 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        .clearfix::after{
+            content:'';
+            display:block;
+            clear:both;
+        }
         :root{
             font-family: 'Noto Sans KR', sans-serif;
             font-size:14px;
@@ -464,7 +469,35 @@
         }
 
 
-
+        .benefit-contents{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:space-between;
+        }
+        .benefit-list{
+            width:60%;
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;
+        }
+        .benefit-slider01,.benefit-slider02{
+            width:50%;
+        }
+        .benefit-banner01{
+            width:66.31578947368421%;
+        }
+        .benefit-banner02{
+            width:30.67669172932331%;
+        }
+        .benefit-ad{
+            width:40%;
+        }
+        .benefit-banner01 a,.benefit-banner02 a{
+            display:none;
+        }
+        .benefit-banner01 a.active,.benefit-banner02 a.active{
+            display:block;
+        }
 
         
 
@@ -2051,18 +2084,69 @@
                 <h2 class="sec-tit">혜택</h2>
                 <div class="benefit-contents">
                     <div class="benefit-list">
-                        <div class="benefit-slide01">
-
-                        </div>
-                        <div class="benefit-slide02">
+                        <div class="benefit-slider01">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide"></div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit01-01.jpg" alt="슬라이더1">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit02-01.jpg" alt="슬라이더2">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit03-01.jpg" alt="슬라이더3">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit04-01.jpg" alt="슬라이더4">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="benefit-banner01"></div>
-                        <div class="benefit-banner02"></div>
+                        <div class="benefit-slider02">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit01-02.jpg" alt="슬라이더1-2">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit02-02.jpg" alt="슬라이더2-2">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit03-02.jpg" alt="슬라이더3-2">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="./images/benefit04-02.jpg" alt="슬라이더4-2">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="benefit-banner01">
+                            <a href="#" class="active"><img src="./images/benefit-banner01.jpg" alt="베네핏 광고1"></a>
+                            <a href="#"><img src="./images/benefit-banner02.jpg" alt="베네핏 광고2"></a>
+                            <a href="#"><img src="./images/benefit-banner03.jpg" alt="베네핏 광고3"></a>
+                            <a href="#"><img src="./images/benefit-banner04.jpg" alt="베네핏 광고4"></a>
+                        </div>
+                        <div class="benefit-banner02">
+                            <a href="#" class="active"><img src="./images/benefit-banner11.jpg" alt="베네핏 광고5"></a>
+                            <a href="#"><img src="./images/benefit-banner12.jpg" alt="베네핏 광고6"></a>
+                            <a href="#"><img src="./images/benefit-banner13.jpg" alt="베네핏 광고7"></a>
+                        </div>
                     </div>
                     <div class="benefit-ad img-box">
                         <a href="#">
@@ -2175,8 +2259,8 @@
         })
 
 
-        // swiperJs
-        var swiper = new Swiper(".swiper", {
+        // movie list swiperJs
+        var swiper = new Swiper(".movie-list .swiper", {
             slidesPerView: 4.2,
             spaceBetween: 20,           
             breakpoints: {
@@ -2199,7 +2283,8 @@
         });
 
         
-        
+        // benefit swiperJs
+        var benefitSwiper = new Swiper(".benefit .swiper")
         
         let expImg = $('.movie-exp img');
         let filmImg = $('.film img');
