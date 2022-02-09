@@ -584,12 +584,14 @@
         }
         .benefit-nav ul{
             display:flex;
-            flex-flow:row nowrap;
-            justify-content:space-around;
+            flex-flow:row nowrap;            
             align-content:center;
             font-weight:300; 
             font-size:1.1em;           
             color:rgba(255,255,255,0.8);
+        }
+        .benefit-nav li{
+            flex:1;
         }
         .benefit-nav a{
             display:block;
@@ -599,6 +601,26 @@
         .benefit-nav a i{
             font-size:3em;
         }
+
+        .cutation{
+            background-color:#252451;
+        }
+        .curation-contents{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:space-between;
+            align-content:flex-start;
+        }
+        .select-curation{
+            flex:1;
+            margin-right:50px;
+            background-color:red;
+        }
+        .curation-content{
+            flex:2;
+            background-color:red;
+        }
+
         
         
         
@@ -2333,7 +2355,15 @@
             </div>
         </section>
         <section class="sec cutation">
-            <div class="container"></div>
+            <div class="container">
+                <h2 class="sec-tit sec-tit-light">
+                    큐레이션
+                </h2>
+                <div class="curation-contents">
+                    <div class="select-curation">큰포스터</div>
+                    <div class="curation-content">포스터들</div>
+                </div>
+            </div>
         </section>
         <section class="sec megainfo">
             <div class="container"></div>
