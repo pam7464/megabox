@@ -427,6 +427,41 @@
             font-size:2em;
             opacity: 0.8;
         }
+        .mouse-move{
+            width:18px;
+            height:30px;
+            margin:20px auto;
+            border:2px solid #fff;
+            border-radius:9px;
+            animation-name:mouse-ani;
+            animation-duration:2s;
+            animation-timing-function:ease;
+            animation-iteration-count:infinite;            
+        }
+        .mouse-move::after{
+            content:'';
+            display:block;
+            width:2px;
+            height:8px;
+            margin:6px auto;
+            background-color:#fff;
+        }
+
+        /* 마우스 애니메이션 */
+        @keyframes mouse-ani{
+            0%{
+                transform:translateY(0);
+            }
+            40%{
+                transform:translateY(50px);
+            }
+            60%{
+                transform:translateY(50px);
+            }
+            100%{
+                transform:translateY(0);
+            }
+        }
 
 
 
@@ -2008,11 +2043,35 @@
                     </ul>
                 </div>
 
-
+                <div class="mouse-move"></div>
             </div>
         </section>
         <section class="sec benefit">
-            <div class="container"></div>
+            <div class="container">
+                <h2 class="sec-tit">혜택</h2>
+                <div class="benefit-contents">
+                    <div class="benefit-list">
+                        <div class="benefit-slide01">
+
+                        </div>
+                        <div class="benefit-slide02">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="benefit-banner01"></div>
+                        <div class="benefit-banner02"></div>
+                    </div>
+                    <div class="benefit-ad img-box">
+                        <a href="#">
+                            <img src="./images/banner-mid.jpg" alt="현대해상 광고2">
+                        </a>
+                        <div class="ad">ad</div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="sec cutation">
             <div class="container"></div>
