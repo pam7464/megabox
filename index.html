@@ -2131,6 +2131,9 @@
                                         <i class="fas fa-play play active"></i> 
                                         <i class="fas fa-pause pause"></i>                                        
                                     </div>
+
+                                    <!-- pagenation btn -->
+                                    <div class="swiper-pagination"></div>
                                 </div>
                             </div>                            
                         </div>
@@ -2308,7 +2311,7 @@
 
         
         // benefit-slider01 swiperJs
-        var ben01 = new Swiper(".benefit-slider01 .swiper",{            
+        var ben01 = new Swiper(".benefit-slider01 .swiper",{ 
             allowTouchMove:false,
             effect:'fade',
             navigation: {
@@ -2319,9 +2322,13 @@
                 el: '.swiper-scrollbar',
             },
             loop:true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'fraction',
+            },
         })
         // benefit-slider02 swiperJs
-        var ben02 = new Swiper(".benefit-slider02 .swiper",{           
+        var ben02 = new Swiper(".benefit-slider02 .swiper",{                       
             direction:'horizontal',
             allowTouchMove:false,
             loop:true,
@@ -2370,12 +2377,14 @@
             'click':function(){
                 $('.btn-play-pause i').toggleClass('active');
                 if($('.play').hasClass('active')){
-                  
+                    ben01.autoplay.stop();                    
                 }else{
-                   
+                    ben01.autoplay.start();
                 }
             }
         })
+        
+
     </script>
 </body>
 </html>
