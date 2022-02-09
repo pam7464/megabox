@@ -468,11 +468,24 @@
             }
         }
 
+        .benefit{
+            position:relative;
+        }
+        .bg-benefit{
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:-1;
+            height:300px;
+            background-color:#503396;
+        }
 
         .benefit-contents{
             display:flex;
             flex-flow:row nowrap;
             justify-content:space-between;
+            margin-bottom:50px;
         }
         .benefit-list{
             width:60.45454545454545%;
@@ -484,10 +497,10 @@
             width:50%;
         }
         .benefit-banner01{
-            width:66.31578947368421%;
+            width:66.31578947368421%;            
         }
         .benefit-banner02{
-            width:30.67669172932331%;
+            width:30.67669172932331%;            
         }
         .benefit-ad{
             width:37.72727272727273%;
@@ -497,6 +510,10 @@
         }
         .benefit-banner01 a.active,.benefit-banner02 a.active{
             display:block;
+        }
+        .benefit-banner01 img,.benefit-banner02 img{
+            border-radius:6px;
+            box-shadow:10px 10px 10px rgba(0,0,0,0.3);
         }
 
         .btn-play-pause>i{
@@ -513,34 +530,73 @@
             justify-content:space-between;
         }
         .controls-box>div{
-            position:static !important;            
+            position:static !important;
+            display:flex;            
+            justify-content:center;
+            align-items:center;            
         }
-        .controls-box .scrollbar{
-            width:50%;
+        .controls-box>.scrollbar{
+            width:75%;
+            position:relative !important;
         }
+        
+
+
+
         .scrollbar span{
-            display:inline-block;
             width:25%;
-            height:3px;                        
-            background-color:#999;
+            height:2px;                        
+            background-color:rgba(0,0,0,0.1);
         }
-        .swiper-button-prev{
-            width:10%;
+
+        .scrollbar #move-span{
+            position:absolute;            
+            left:0;
+            top:50%;
+            transform:translateY(-50%);
+           
+            display:block;
+            text-indent:-999999px;
+            width:25%;
+            height:2px;
+            background-color:#352461;
         }
-        .swiper-button-next{
-            width:10%;
-        }
-        .btn-play-pause{
-            width:10%;
-        }
-        .swiper-pagination{
-            width:20%;
+        .swiper-button-prev,.swiper-button-next{
+            width:5%;
+            margin:0;
         }
         .swiper-button-prev:after,.swiper-button-next:after{
-            font-weight:700;
+            font-weight:900;
             font-size:8px;
-            color:#333;
+            color:#352461;
         }
+        .btn-play-pause{
+            width:5%;            
+        }
+        .btn-play-pause i::before{
+            color:#352461;
+        }
+        .swiper-pagination{
+            width:10%;
+        }
+        .benefit-nav ul{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:space-around;
+            align-content:center;
+            font-weight:300; 
+            font-size:1.1em;           
+            color:rgba(255,255,255,0.8);
+        }
+        .benefit-nav a{
+            display:block;
+            text-align:center;
+            margin-bottom:10px;
+        }
+        .benefit-nav a i{
+            font-size:3em;
+        }
+        
         
         
 
@@ -2123,6 +2179,7 @@
             </div>
         </section>
         <section class="sec benefit">
+            <div class="bg-benefit"></div>
             <div class="container">
                 <h2 class="sec-tit">혜택</h2>
                 <div class="benefit-contents">
@@ -2155,8 +2212,12 @@
 
                                 <div class="controls-box">
                                     <!-- If we need scrollbar -->
-                                    <div class="scrollbar">
-                                        <span></span><span></span><span></span><span></span>
+                                    <div class="scrollbar scrollbar0" id="scrollbar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span id="move-span">왓다갔다 하는ㄴ애</span>
                                     </div>
 
                                     <!-- navigation btn -->
@@ -2217,6 +2278,30 @@
                         </a>
                         <div class="ad">ad</div>
                     </div>
+                </div>
+                <div class="benefit-nav">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fas fa-gem"></i></a>
+                            <a href="#">VIP LAUNGE</a>
+                        </li>                       
+                        <li>
+                            <a href="#"><i class="fas fa-user"></i></a>
+                            <a href="#">멤버십</a>
+                        </li>                       
+                        <li>
+                            <a href="#"><i class="fas fa-address-card"></i></a>
+                            <a href="#">할인카드</a>
+                        </li>                       
+                        <li>
+                            <a href="#"><i class="fas fa-gift"></i></a>
+                            <a href="#">이벤트</a>
+                        </li>                       
+                        <li>
+                            <a href="#"><i class="fas fa-wine-glass"></i></a>
+                            <a href="#">스토어</a>
+                        </li>                       
+                    </ul>
                 </div>
             </div>
         </section>
@@ -2418,6 +2503,20 @@
         })
         
 
+
+        // slide change event
+        ben01.on('slideChange', function () {
+            let indexNum = (ben01.realIndex);
+            if(indexNum == 0){
+                $('#move-span').css('left','0');
+            }else if(indexNum == 1){
+                $('#move-span').css('left','25%');
+            }else if(indexNum == 2){
+                $('#move-span').css('left','50%');
+            }else if(indexNum == 3){
+                $('#move-span').css('left','75%');
+            }
+        });
     </script>
 </body>
 </html>
