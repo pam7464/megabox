@@ -506,6 +506,41 @@
         .btn-play-pause>i.active{
             display:inline;
         }
+
+        .controls-box{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:space-between;
+        }
+        .controls-box>div{
+            position:static !important;            
+        }
+        .controls-box .scrollbar{
+            width:50%;
+        }
+        .scrollbar span{
+            display:inline-block;
+            width:25%;
+            height:3px;                        
+            background-color:#999;
+        }
+        .swiper-button-prev{
+            width:10%;
+        }
+        .swiper-button-next{
+            width:10%;
+        }
+        .btn-play-pause{
+            width:10%;
+        }
+        .swiper-pagination{
+            width:20%;
+        }
+        .swiper-button-prev:after,.swiper-button-next:after{
+            font-weight:700;
+            font-size:8px;
+            color:#333;
+        }
         
         
 
@@ -2120,7 +2155,9 @@
 
                                 <div class="controls-box">
                                     <!-- If we need scrollbar -->
-                                    <div class="swiper-scrollbar"></div>
+                                    <div class="scrollbar">
+                                        <span></span><span></span><span></span><span></span>
+                                    </div>
 
                                     <!-- navigation btn -->
                                     <div class="swiper-button-prev"></div>
@@ -2131,7 +2168,6 @@
                                         <i class="fas fa-play play active"></i> 
                                         <i class="fas fa-pause pause"></i>                                        
                                     </div>
-
                                     <!-- pagenation btn -->
                                     <div class="swiper-pagination"></div>
                                 </div>
@@ -2317,10 +2353,7 @@
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
-            },
-            scrollbar: {
-                el: '.swiper-scrollbar',
-            },
+            },            
             loop:true,
             pagination: {
                 el: '.swiper-pagination',
