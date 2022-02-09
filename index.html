@@ -475,7 +475,7 @@
             justify-content:space-between;
         }
         .benefit-list{
-            width:60%;
+            width:60.45454545454545%;
             display:flex;
             flex-flow:row wrap;
             justify-content:space-between;
@@ -490,7 +490,7 @@
             width:30.67669172932331%;
         }
         .benefit-ad{
-            width:40%;
+            width:37.72727272727273%;
         }
         .benefit-banner01 a,.benefit-banner02 a{
             display:none;
@@ -499,6 +499,14 @@
             display:block;
         }
 
+        .btn-play-pause>i{
+            cursor:pointer;
+            display:none;
+        }
+        .btn-play-pause>i.active{
+            display:inline;
+        }
+        
         
 
 
@@ -2086,6 +2094,7 @@
                     <div class="benefit-list">
                         <div class="benefit-slider01">
                             <div class="swiper">
+                                <!-- slides -->
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <a href="#">
@@ -2108,7 +2117,22 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+
+                                <div class="controls-box">
+                                    <!-- If we need scrollbar -->
+                                    <div class="swiper-scrollbar"></div>
+
+                                    <!-- navigation btn -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+
+                                    <!-- button play/stop -->
+                                    <div class="btn-play-pause">                                        
+                                        <i class="fas fa-play play active"></i> 
+                                        <i class="fas fa-pause pause"></i>                                        
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>
                         <div class="benefit-slider02">
                             <div class="swiper">
@@ -2135,7 +2159,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                         <div class="benefit-banner01">
                             <a href="#" class="active"><img src="./images/benefit-banner01.jpg" alt="베네핏 광고1"></a>
                             <a href="#"><img src="./images/benefit-banner02.jpg" alt="베네핏 광고2"></a>
@@ -2283,8 +2307,42 @@
         });
 
         
-        // benefit swiperJs
-        var benefitSwiper = new Swiper(".benefit .swiper")
+        // benefit-slider01 swiperJs
+        var ben01 = new Swiper(".benefit-slider01 .swiper",{            
+            allowTouchMove:false,
+            effect:'fade',
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+            loop:true,
+        })
+        // benefit-slider02 swiperJs
+        var ben02 = new Swiper(".benefit-slider02 .swiper",{           
+            direction:'horizontal',
+            allowTouchMove:false,
+            loop:true,
+        })
+        
+        ben01.controller.control = ben02;
+        ben02.controller.control = ben01;
+
+        // benefit random banner01
+        let acBanNum1 =Math.floor(Math.random()*4);
+        let acBan1 = $('.benefit-banner01 a');
+        acBan1.removeClass('active');
+        acBan1.eq(acBanNum1).addClass('active');
+
+        // benefit random banner02
+        let acBanNum2 =Math.floor(Math.random()*3);
+        let acBan2 = $('.benefit-banner02 a');
+        acBan2.removeClass('active');
+        acBan2.eq(acBanNum2).addClass('active');
+
+
         
         let expImg = $('.movie-exp img');
         let filmImg = $('.film img');
@@ -2307,6 +2365,17 @@
         }
 
         
+        // btn play pause event
+        $('.btn-play-pause i').on({
+            'click':function(){
+                $('.btn-play-pause i').toggleClass('active');
+                if($('.play').hasClass('active')){
+                  
+                }else{
+                   
+                }
+            }
+        })
     </script>
 </body>
 </html>
