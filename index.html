@@ -773,8 +773,21 @@
         .megainfo-nav ul li p{
             text-align:center;
         }
+
+        .wrap .banner-bottom{
+            padding-bottom:20px;
+        }
         .banner-bottom .img-box{
             position:relative;
+        }
+
+        .footer{
+            padding:30px;
+            background-color:#503396;
+            color:#fff;
+        }
+        .footer .in:first-child{
+            margin-bottom:20px;
         }
         .footer-nav{
             float:left;
@@ -782,23 +795,31 @@
         .footer-nav li{
             display:inline-block;
             margin-right:1em;
-            color:#999;
-        }
-        .footer-nav li strong{
-            color:#000;
-        }
+        }        
         .cinema-search{
-            float:right;
-            color:#000;
+            float:right;           
+            border:1px solid rgba(255,255,255,0.8);
+            padding:10px 30px;
+            border-radius:20px;
+            cursor: pointer;
         }
-
-
-
-
-
-        .footer {padding-bottom:500px}
-        
-        
+        .footer-logo{
+            width:140px;
+            margin-right:20px;
+            opacity:0.5;
+        }
+        .footer-logo,.address{
+            float:left;
+        }
+        .address{
+            font-style:normal;
+        }
+        .sns-list{
+            float:right;
+        }
+        .sns-list li{
+            display:inline-block;
+        }   
 
 
 
@@ -890,6 +911,9 @@
             }
             .notice-container ul{
                 grid-template-columns: 1fr 8.5fr 1.5fr 1fr;
+            }
+            .footer-nav li:nth-child(2n){
+                display:none;
             }
 
         }
@@ -1025,6 +1049,9 @@
             .megainfo-list ul{
                 grid-template-columns:repeat(3,1fr);
                 gap:40px;
+            }
+            .footer-nav,.footer-logo,.address{
+                margin-bottom:20px;
             }
         }
 
@@ -2759,7 +2786,27 @@
                         <span>극장찾기</span>
                     </div>
                 </div>
-                <div class="in"></div>
+                <div class="in clearfix">
+                    <div class="footer-logo">
+                        <a href="./index.html"><img src="./images/logo-white.png" alt="시작페이지로"></a>
+                    </div>
+                    <address class="address">
+                        서울특별시 마포구 월드컵로 240, 지상2층(성산동, 월드컵주경기장) ARS 1544-0070
+                        <br>
+                        대표자명 홍정인 · 개인정보보호책임자 공성진 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 제 2020-서울마포-4545 호
+                        <br>
+                        COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved
+                    </address>
+                    <div class="sns-list">
+                        <ul>
+                            <li><a href="#"><img src="./images/ico-twitter.png" alt="twitter" title="twitter"></a></li>
+                            <li><a href="#"><img src="./images/ico-facebook.png" alt="facebook" title="facebook"></a></li>
+                            <li><a href="#"><img src="./images/ico-instagram.png" alt="instagram" title="instagram"></a></li>
+                            <li><a href="#"><img src="./images/ico-googleplay.png" alt="googleplay" title="googleplay"></a></li>
+                            <li><a href="#"><img src="./images/ico-appstore.png" alt="appstore" title="appstore"></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </footer>
     </section>
