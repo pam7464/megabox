@@ -90,6 +90,7 @@
             bottom:0;
             z-index:9998;
             background-color:rgba(0,0,0,0.3);
+            display:none;
         }
         .modal-container{
             position:absolute;
@@ -2824,6 +2825,36 @@
     <!-- swiper Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.0.3/swiper-bundle.min.js" integrity="sha512-+1MtN0rwSlEnZo0agG99mCQChlBtfe8hyHItwWtgiD33mWvaNVZkZB9yX2S92z5HgDg1+EcitjutZejbHUcZAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        if($.cookie('modal-popup') == 'no'){
+            $('.modal-popup').css('display','none');
+        }else{
+            $('.modal-popup').css('display','block');
+        }
+
+         // benefit random banner01
+         let acBanNum1 =Math.floor(Math.random()*4);
+        let acBan1 = $('.benefit-banner01 a');
+        acBan1.removeClass('active');
+        acBan1.eq(acBanNum1).addClass('active');
+
+        // benefit random banner02
+        let acBanNum2 =Math.floor(Math.random()*3);
+        let acBan2 = $('.benefit-banner02 a');
+        acBan2.removeClass('active');
+        acBan2.eq(acBanNum2).addClass('active');
+
+
+        
+        let expImg = $('.movie-exp img');
+        let filmImg = $('.film img');
+        let clasicImg = $('.clasic img');
+
+        setList(expImg,'exp');
+        setList(filmImg,'film');
+        setList(clasicImg,'clasic');
+        
+
+
         // modal close event
         $('.btn-modal-close').on({
             'click':function(){
@@ -2833,12 +2864,6 @@
                 }
             }
         })
-
-        if($.cookie('modal-popup') == 'no'){
-            $('.modal-popup').css('display','none');
-        }else{
-            $('.modal-popup').css('display','block');
-        }
 
         // banner top close event
         $('.btn-banner-top-close').on({
@@ -2921,7 +2946,6 @@
                 },
             },
         });
-
         
         // benefit-slider01 swiperJs
         var ben01 = new Swiper(".benefit-slider01 .swiper",{ 
@@ -2937,6 +2961,7 @@
                 type: 'fraction',
             },
         })
+        
         // benefit-slider02 swiperJs
         var ben02 = new Swiper(".benefit-slider02 .swiper",{                       
             direction:'horizontal',
@@ -2947,28 +2972,7 @@
         ben01.controller.control = ben02;
         ben02.controller.control = ben01;
 
-        // benefit random banner01
-        let acBanNum1 =Math.floor(Math.random()*4);
-        let acBan1 = $('.benefit-banner01 a');
-        acBan1.removeClass('active');
-        acBan1.eq(acBanNum1).addClass('active');
-
-        // benefit random banner02
-        let acBanNum2 =Math.floor(Math.random()*3);
-        let acBan2 = $('.benefit-banner02 a');
-        acBan2.removeClass('active');
-        acBan2.eq(acBanNum2).addClass('active');
-
-
-        
-        let expImg = $('.movie-exp img');
-        let filmImg = $('.film img');
-        let clasicImg = $('.clasic img');
-
-        setList(expImg,'exp');
-        setList(filmImg,'film');
-        setList(clasicImg,'clasic');
-        
+       
 
 
         function setList(target,stSrc){
