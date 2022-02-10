@@ -602,7 +602,7 @@
             font-size:3em;
         }
 
-        .cutation{
+        .curation{
             background-color:#252451;
         }
         .curation-contents{
@@ -613,12 +613,30 @@
         }
         .select-curation{
             flex:1;
-            margin-right:50px;
-            background-color:red;
+            margin-right:50px;            
         }
+
+
         .curation-content{
-            flex:2;
-            background-color:red;
+            flex:3;            
+        }
+
+        .curation .poster{
+            overflow:initial;
+        }
+        .curation .poster .img-box{
+            border-radius:10px;
+            overflow:hidden;
+        }
+        .poster-over{
+            position:absolute;
+            left:-10px;
+            top:-5px;
+            z-index:100;
+            padding:10px;
+            border-bottom-left-radius:50%;
+            border-bottom-right-radius:50%;
+            background: #037b94;
         }
 
         
@@ -2362,14 +2380,33 @@
                 </div>
             </div>
         </section>
-        <section class="sec cutation">
+        <section class="sec curation">
             <div class="container">
                 <h2 class="sec-tit sec-tit-light">
                     큐레이션
                 </h2>
                 <div class="curation-contents">
-                    <div class="select-curation">큰포스터</div>
-                    <div class="curation-content">포스터들</div>
+                    <div class="select-curation">
+                        <div class="poster">
+                            <div class="img-box">
+                                <img src="./images/curation-list01.jpg" alt="큐레이션1">
+                            </div>
+                            <div class="poster-over">
+                                <p>
+                                    megabox<br>
+                                    classic<br>
+                                    society
+                                </p>
+                            </div>
+                        </div>
+                        <div class="poster-bottom">
+                            <button type="button">상세정보</button>
+                            <button type="button">예매</button>
+                        </div>
+                    </div>
+                    <div class="curation-content">
+                        포스터들
+                    </div>
                 </div>
             </div>
         </section>
