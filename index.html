@@ -668,6 +668,9 @@
         .curation-content-poster .poster{
             margin-top:5px;
         }
+        .curation-content-poster .poster img{
+            cursor: pointer;
+        }
         .movie-level{
             position:absolute;
             left:10px;
@@ -2456,19 +2459,8 @@
                         </div>
                     </div>
                     <div class="curation-content">
-                        <div class="curation-content-tit">
-                            <h3>#굿즈패키지</h3>
-                            <h4>어나더 라운드</h4>
-                        </div>
-                        <div class="curation-content-txt">
-                            <h5>[상영정보]</h5>
-                            <ul>
-                                <li>- 상영일 : 2022년 2월 26일&28일</li>
-                                <li>- 러닝타임 : 149분 (인터미션 있음)</li>
-                                <li>- 감독 : 이사벨 줄리안 (Isabelle Julien)</li>
-                                <li>- 음악 : 포레 / 스트라빈스키 / 차이콥스키</li>
-                                <li>- 안무 : 조지 발란신 ©The George Balanchine Trust</li>
-                            </ul>
+                        <div id="curation-ajax">
+                            큐레이션의 내용이 로드될 곳
                         </div>
                         <div class="curation-content-poster">
                             <div class="swiper curation-swiper">
@@ -2764,9 +2756,16 @@
             'click':function(){
                 let cuImgSrc = $(this).attr('src');
                 cuSelImg.attr('src',cuImgSrc);
-                let selectIdx = cuConImg.index(this);
+                let selectIdx = cuConImg.index(this);                
+                cuLoad(selectIdx);
             }
         })
+
+        cuLoad(0);
+
+        function cuLoad(idxNum){
+            $('#curation-ajax').load('curation.html #curation0' + idxNum);
+        }
     </script>
 </body>
 </html>
