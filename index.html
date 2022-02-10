@@ -685,6 +685,21 @@
         .curation-content-poster p{
             text-align:center;
         }
+
+        .megainfo-list ul{
+            display:grid;
+            grid-template-columns:repeat(6,1fr);
+            gap:20px;
+        }
+        .megainfo-list ul li{
+            border-radius:6px;
+            overflow:hidden;
+            filter:grayscale(1) opacity(0.5);
+            transition:0.3s;
+        }
+        .megainfo-list ul li:hover{
+            filter:grayscale(0) opacity(1);
+        }
         
         
 
@@ -885,7 +900,21 @@
             .benefit-ad{
                 display:none;
             }
-        }       
+
+            .megainfo-list ul{
+                gap:3%;
+            }
+            .megainfo-list ul li{
+                border-radius:50%;
+            }
+        }    
+        
+        @media (max-width:640px){
+            .megainfo-list ul{
+                grid-template-columns:repeat(3,1fr);
+                gap:40px;
+            }
+        }
 
         @media (max-width:490px){
             .movie-list .list-tit ul li,            
@@ -2517,9 +2546,32 @@
             </div>
         </section>
         <section class="sec megainfo">
-            <div class="container">
-                
+            <div class="container list-container">
+                <h2 class="sec-tit">메가박스 안내</h2>
+                <div class="megainfo-list">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="./images/megainfo01.png" alt="mega01"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./images/megainfo02.png" alt="mega02"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./images/megainfo03.png" alt="mega03"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./images/megainfo04.png" alt="mega04"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./images/megainfo05.png" alt="mega05"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./images/megainfo06.png" alt="mega06"></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
         </section>
         <section class="sec banner-bottom">
             <div class="container"></div>
@@ -2763,6 +2815,7 @@
 
         cuLoad(0);
 
+        // curation load function
         function cuLoad(idxNum){
             $('#curation-ajax').load('curation.html #curation0' + idxNum);
         }
