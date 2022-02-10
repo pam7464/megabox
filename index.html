@@ -602,8 +602,10 @@
             font-size:3em;
         }
 
+
         .curation{
             background-color:#252451;
+            color:#fff;
         }
         .curation-contents{
             display:flex;
@@ -612,13 +614,31 @@
             align-content:flex-start;
         }
         .select-curation{
-            flex:1;
+            flex:1;            
             margin-right:50px;            
         }
 
 
         .curation-content{
-            flex:3;            
+            flex:3;  
+            max-width:71.76724137931034%;                     
+        }
+        .curation-content-tit{
+            margin-bottom:20px;
+            border-bottom:1px solid rgba(255,255,255,0.3);
+            padding-bottom:20px;
+        }
+        .curation-content h3{
+            font-size:1.4em;
+        }
+        .curation-content h4{
+            font-size:2.6em;
+        }
+        .curation-content h5{
+            margin-bottom:1em;
+        }
+        .curation-content-txt{
+            margin-bottom:20px;
         }
 
         .curation .poster{
@@ -633,10 +653,16 @@
             left:-10px;
             top:-5px;
             z-index:100;
-            padding:10px;
-            border-bottom-left-radius:50%;
-            border-bottom-right-radius:50%;
+            padding:8px 10px 36px;
+            border-bottom-left-radius:40px;
+            border-bottom-right-radius:40px;
             background: #037b94;
+
+            text-transform:uppercase;
+            font-weight:700;
+            font-size:1.1em;
+            color:#fff;
+            line-height:1.2em;
         }
 
         
@@ -2405,13 +2431,78 @@
                         </div>
                     </div>
                     <div class="curation-content">
-                        포스터들
+                        <div class="curation-content-tit">
+                            <h3>#굿즈패키지</h3>
+                            <h4>어나더 라운드</h4>
+                        </div>
+                        <div class="curation-content-txt">
+                            <h5>[상영정보]</h5>
+                            <ul>
+                                <li>- 상영일 : 2022년 2월 26일&28일</li>
+                                <li>- 러닝타임 : 149분 (인터미션 있음)</li>
+                                <li>- 감독 : 이사벨 줄리안 (Isabelle Julien)</li>
+                                <li>- 음악 : 포레 / 스트라빈스키 / 차이콥스키</li>
+                                <li>- 안무 : 조지 발란신 ©The George Balanchine Trust</li>
+                            </ul>
+                        </div>
+                        <div class="curation-content-poster">
+                            <div class="swiper curation-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="poster">
+                                            <div class="img-box">
+                                                <img src="./images/curation-list01.jpg" alt="큐레이션1">
+                                            </div>
+                                            <div class="movie-level">
+                                                F
+                                            </div>
+                                        </div>
+                                        <p>어나더 리스트</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="poster">
+                                            <div class="img-box">
+                                                <img src="./images/curation-list02.jpg" alt="큐레이션2">
+                                            </div>
+                                            <div class="movie-level">
+                                                F
+                                            </div>
+                                        </div>
+                                        <p>드라이브 마이카</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="poster">
+                                            <div class="img-box">
+                                                <img src="./images/curation-list03.jpg" alt="큐레이션3">
+                                            </div>
+                                            <div class="movie-level">
+                                                F
+                                            </div>
+                                        </div>
+                                        <p>미싱타는 여자들</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="poster">
+                                            <div class="img-box">
+                                                <img src="./images/curation-list04.jpg" alt="큐레이션4">
+                                            </div>
+                                            <div class="movie-level">
+                                                F
+                                            </div>
+                                        </div>
+                                        <p>더 마더</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="sec megainfo">
-            <div class="container"></div>
+            <div class="container">
+                
+            </div>
         </section>
         <section class="sec banner-bottom">
             <div class="container"></div>
@@ -2617,6 +2708,24 @@
                 $('#move-span').css('left','50%');
             }else if(indexNum == 3){
                 $('#move-span').css('left','75%');
+            }
+        });
+
+        
+
+        // curation swiper
+        const cuSwiper = new Swiper('.curation .swiper',{
+            spaceBetween:20,
+            breakpoints:{
+                0:{
+                    slidesPerView:1.5,
+                },
+                758:{
+                    slidesPerView:2.5,
+                },
+                1200:{
+                    slidesPerView:4,
+                }
             }
         });
     </script>
