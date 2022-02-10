@@ -700,6 +700,44 @@
         .megainfo-list ul li:hover{
             filter:grayscale(0) opacity(1);
         }
+        .notice-container{
+            margin:50px 0;
+            border-top:1px solid rgba(0,0,0,0.3);
+            border-bottom:1px solid rgba(0,0,0,0.3);
+            padding:30px 0;            
+        }
+        .notice-container ul{
+            display:grid;
+            grid-template-columns:1fr 9fr 1fr 1fr;
+        }
+        .notice-container ul li{
+            border-right:1px solid rgba(0,0,0,0.3);
+            text-align:center;
+        }
+        .notice-container ul li.cinema,
+        .notice-container ul li.notice-tit{
+            text-align:left;
+        }
+        .notice-container ul li.notice-tit{
+            padding-left:1em;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+        }
+        .notice-container ul li.notice-tit:hover{
+            font-weight:700;
+        }
+        .notice-container ul li.notice-tit span{
+            font-weight:700;
+            color:#503396;
+        }
+        .notice-container ul li:last-child{
+            border-right:none;
+        }
+        .megainfo-nav ul{
+            display:grid;
+            grid-template-columns:repeat(6,1fr);            
+        }
         
         
 
@@ -794,6 +832,9 @@
             }
             .curation-content{                
                 max-width:100%;                     
+            }
+            .notice-container ul{
+                grid-template-columns: 1fr 8.5fr 1.5fr 1fr;
             }
 
         }
@@ -907,6 +948,15 @@
             .megainfo-list ul li{
                 border-radius:50%;
             }
+            .notice-container ul{
+                grid-template-columns:8fr 2.5fr 1.5fr;
+            }
+            .notice-container ul li.cinema{
+                display:none;
+            }
+            .notice-container ul li.notice-tit{
+                padding-left:0;
+            }
         }    
         
         @media (max-width:640px){
@@ -957,6 +1007,12 @@
                 font-size:0.9em;
             }
             .benefit-nav span{
+                display:none;
+            }
+            .notice-container ul{
+                grid-template-columns: 10fr 2fr;
+            }
+            .notice-container ul li.write-date{
                 display:none;
             }
 
@@ -2571,7 +2627,44 @@
                     </ul>
                 </div>
             </div>
-
+            <div class="notice-container">
+                <div class="container">
+                    <ul>
+                        <li class="cinema">메가박스</li>
+                        <li class="notice-tit"><a href="#"><span>[이벤트]</span> [당첨자공지] 내통장결제 관람권 프로모션</a></li>
+                        <li class="write-date">2022-02-10</li>
+                        <li><a href="#">더보기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container megainfo-nav">
+                <ul>
+                    <li>
+                        <div class="img-box"><a href="#"><img src="./images/ico-megainfo01.png" alt="고객센터" title="고객센터"></a></div>
+                        <p><a href="#">고객센터</a></p>
+                    </li>
+                    <li>
+                        <div class="img-box"><a href="#"><img src="./images/ico-megainfo02.png" alt="자주 묻는 질문" title="자주 묻는 질문"></a></div>
+                        <p><a href="#">자주 묻는 질문</a></p>
+                    </li>
+                    <li>
+                        <div class="img-box"><a href="#"><img src="./images/ico-megainfo03.png" alt="1:1 문의" title="1:1 문의"></a></div>
+                        <p><a href="#">1:1 문의</a></p>
+                    </li>
+                    <li>
+                        <div class="img-box"><a href="#"><img src="./images/ico-megainfo04.png" alt="단체/대관문의" title="단체/대관문의"></a></div>
+                        <p><a href="#">단체/대관문의</a></p>
+                    </li>
+                    <li>
+                        <div class="img-box"><a href="#"><img src="./images/ico-megainfo05.png" alt="분실물 문의/접수" title="분실물 문의/접수"></a></div>
+                        <p><a href="#">분실물 문의/접수</a></p>
+                    </li>
+                    <li>
+                        <div class="img-box"><a href="#"><img src="./images/ico-megainfo06.png" alt="더 부티크 프라이빗 대관예매" title="더 부티크 프라이빗 대관예매"></a></div>
+                        <p><a href="#">더 부티크 프라이빗<br>대관예매</a></p>
+                    </li>
+                </ul>
+            </div>
         </section>
         <section class="sec banner-bottom">
             <div class="container"></div>
