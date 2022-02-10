@@ -617,6 +617,22 @@
             flex:1;            
             margin-right:50px;            
         }
+        .poster-over{
+            position:absolute;
+            left:-10px;
+            top:-5px;
+            z-index:100;
+            padding:8px 10px 36px;
+            border-bottom-left-radius:40px;
+            border-bottom-right-radius:40px;
+            background: #037b94;
+
+            text-transform:uppercase;
+            font-weight:700;
+            font-size:1.1em;
+            color:#fff;
+            line-height:1.2em;
+        }
 
 
         .curation-content{
@@ -648,22 +664,26 @@
             border-radius:10px;
             overflow:hidden;
         }
-        .poster-over{
-            position:absolute;
-            left:-10px;
-            top:-5px;
-            z-index:100;
-            padding:8px 10px 36px;
-            border-bottom-left-radius:40px;
-            border-bottom-right-radius:40px;
-            background: #037b94;
 
-            text-transform:uppercase;
-            font-weight:700;
-            font-size:1.1em;
-            color:#fff;
-            line-height:1.2em;
+        .curation-content-poster .poster{
+            margin-top:5px;
         }
+        .movie-level{
+            position:absolute;
+            left:10px;
+            top:-5px;
+            
+            width:26px;            
+            background-color:#503396;
+
+            font-size:1.2em;
+            text-align:center;
+        }
+        .curation-content-poster p{
+            text-align:center;
+        }
+        
+        
 
         
         
@@ -751,7 +771,12 @@
             .movie-list-nav span{
                 display:none;
             }
-
+            .select-curation{
+                display:none;         
+            }
+            .curation-content{                
+                max-width:100%;                     
+            }
 
         }
 
@@ -2718,16 +2743,30 @@
             spaceBetween:20,
             breakpoints:{
                 0:{
-                    slidesPerView:1.5,
+                    slidesPerView:1.8,
                 },
-                758:{
-                    slidesPerView:2.5,
+                640:{
+                    slidesPerView:2.8,
+                },
+                960:{
+                    slidesPerView:3.8,
                 },
                 1200:{
                     slidesPerView:4,
                 }
             }
         });
+    
+        // curation poster event
+        let cuConImg = $('.curation-content-poster .poster img');
+        let cuSelImg = $('.select-curation .poster img');
+        cuConImg.on({
+            'click':function(){
+                let cuImgSrc = $(this).attr('src');
+                cuSelImg.attr('src',cuImgSrc);
+                let selectIdx = cuConImg.index(this);
+            }
+        })
     </script>
 </body>
 </html>
