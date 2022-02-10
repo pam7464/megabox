@@ -813,8 +813,7 @@
             .benefit-ad{
                 display:none;
             }
-        }
-       
+        }       
 
         @media (max-width:490px){
             .movie-list .list-tit ul li,            
@@ -848,6 +847,15 @@
                 width:100%;
             }
             .benefit-banner02{
+                display:none;
+            }
+            .benefit-nav a i{
+                font-size:2.5em;
+            }
+            .benefit-nav a:last-child{
+                font-size:0.9em;
+            }
+            .benefit-nav span{
                 display:none;
             }
 
@@ -2331,23 +2339,23 @@
                 <div class="benefit-nav">
                     <ul>
                         <li>
-                            <a href="#"><i class="fas fa-gem"></i></a>
-                            <a href="#">VIP LAUNGE</a>
+                            <a href="#"><i class="fas fa-gem" title="VIP LAUNGE"></i></a>
+                            <a href="#">VIP <span>LAUNGE</span></a>
                         </li>                       
                         <li>
-                            <a href="#"><i class="fas fa-user"></i></a>
+                            <a href="#"><i class="fas fa-user" title="멤버십"></i></a>
                             <a href="#">멤버십</a>
                         </li>                       
                         <li>
-                            <a href="#"><i class="fas fa-address-card"></i></a>
+                            <a href="#"><i class="fas fa-address-card" title="할인카드"></i></a>
                             <a href="#">할인카드</a>
                         </li>                       
                         <li>
-                            <a href="#"><i class="fas fa-gift"></i></a>
+                            <a href="#"><i class="fas fa-gift" title="이벤트"></i></a>
                             <a href="#">이벤트</a>
                         </li>                       
                         <li>
-                            <a href="#"><i class="fas fa-wine-glass"></i></a>
+                            <a href="#"><i class="fas fa-wine-glass" title="스토어"></i></a>
                             <a href="#">스토어</a>
                         </li>                       
                     </ul>
@@ -2466,23 +2474,23 @@
 
         // movie list swiperJs
         var swiper = new Swiper(".movie-list .swiper", {
-            slidesPerView: 4.2,
+            slidesPerView: 4.5,
             spaceBetween: 20,           
             breakpoints: {
                 0: {
-                    slidesPerView: 1.5, 
+                    slidesPerView: 1.8, 
                     spaceBetween: 40,                  
                 },
                 768: {
-                    slidesPerView: 2.5,
+                    slidesPerView: 2.9,
                     spaceBetween: 36,   
                 },
                 1024: {
-                    slidesPerView: 3.5,
+                    slidesPerView: 4.1,
                     spaceBetween: 30,   
                 },
                 1200: {
-                    slidesPerView: 4.2,
+                    slidesPerView: 4.5,
                 },
             },
         });
