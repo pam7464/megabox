@@ -307,13 +307,69 @@
         }
 
         .m-login{
+            /* display:none; */
             position:fixed;
             left:0;
             right:0;
             top:0;
-            bottom:0;            
+            bottom:0; 
+            padding:20px;           
             background-color:#fff;
+            color:#666;
         }
+        .m-login h2{
+            margin-bottom:40px;
+            font-size:1.4em;
+            text-align:center;
+        }
+        .m-login form{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;            
+        }
+        .m-login form>*{
+            width:100%;
+        }
+        .m-login form label,
+        .m-login form .e-login{
+            width:auto;
+        }
+        .m-login form label input{
+            display:none;
+        }
+        .m-login form ul,
+        .m-login form .web-login{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:center;
+        }
+        .m-ico-check{
+            width:14px;
+            height:14px;
+            background-image:url(./m-images/ico-m-check.png);
+            background-size:auto 100%;
+        }
+        input[type="checkbox"]:checked + .save-id .m-ico-check{
+            background-position-x:right;
+        }
+        .web-login .icons{
+            width:50px;
+            height:50px;
+        }
+        .m-ico-facebook{
+            background-image:url(./m-images/ico-m-facebook.png);
+        }
+        .m-ico-naver{
+            background-image:url(./m-images/ico-m-naver.png);
+        }
+        .m-ico-kakao{
+            background-image:url(./m-images/ico-m-kakao.png);
+        }
+        .m-ico-paico{
+            background-image:url(./m-images/ico-m-payco.png);
+        }
+
+
 
 
 
@@ -1336,7 +1392,41 @@
                 </div>
             </div>
             <div class="container m-login">
-                로그인창
+                <h2>로그인</h2>
+                <form>
+                    <input type="text" placeholder="아이디">
+                    <input type="password" placeholder="비밀번호">
+                    <label>
+                        <input type="checkbox">
+                        <span class="save-id">
+                            <i class="icons m-ico-check"></i>
+                        </span>
+                        아이디 저장
+                    </label>
+                    <div class="e-login">
+                        <span>휴대폰 간편로그인</span>
+                        <span>광고</span>
+                    </div>
+                    <button type="button">로그인</button>
+                    <ul>
+                        <li><a href="#">ID/PW 찾기</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">비회원 예매확인</a></li>
+                    </ul>
+                    <div class="web-login">
+                        <i class="icons m-ico-facebook"></i>
+                        <i class="icons m-ico-naver"></i>
+                        <i class="icons m-ico-kakao"></i>
+                        <i class="icons m-ico-paico"></i>
+                    </div>
+                </form>
+                <div class="ad-box">
+                    <div class="img-box">
+                        <a href="#"><img src="./images/banner-mid.jpg" alt="현대해상 광고"></a>
+                        <div class="ad">ad</div>
+                    </div>
+                </div>
+                <div class="btn-close-login"></div>
             </div>
         </header>
 
@@ -3166,7 +3256,9 @@
 
         function loadLogin(){
             let logCfm = confirm('로그인 후 사용가능합니다.\n로그인 하시겠습니까?');
-            
+            if(logCfm){
+                $('.m-login').show(0);
+            }                        
         }
 
     </script>
