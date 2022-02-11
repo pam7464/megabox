@@ -306,7 +306,7 @@
             background-image:url(./m-images/ico-m-burger.png);
         }
 
-        .m-login{
+        .m-login,.m-nav{
             display:none;
             position:fixed;
             left:0;
@@ -1499,6 +1499,12 @@
                     </div>
                 </div>
                 <div class="btn-close-login"></div>
+            </div>
+            <div class="container m-nav">
+                모바일 내비게이션
+                <div class="btn-close-nav">
+                    닫기
+                </div>
             </div>
         </header>
 
@@ -3322,23 +3328,43 @@
 
 
         // 모바일 이벤트
-        $('#btn-ticket').on({
-            'click':loadLogin,
-        })
-        $('.btn-close-login').on({
-            'click':closeLogin,
-        })
+        
+        let btnLogin = document.getElementById('btn-ticket');
+        let btnCloseLogin = document.querySelector('.btn-close-login')
+        let btnNav = document.querySelector('.icon-m-burger');
+        let btnCloseNav = document.querySelector('.btn-close-nav');
+
+        btnLogin.onclick = loadLogin;
+        btnCloseLogin.onclick = closeLogin;
+        btnNav.onclick = loadNav;
+        btnCloseNav.onclick = closeNav;
 
         function loadLogin(){
             let logCfm = confirm('로그인 후 사용가능합니다.\n로그인 하시겠습니까?');
+            let mLogin = document.querySelector('.m-login');
             if(logCfm){
-                $('.m-login').show(0);
+                mLogin.style.display='block';
             }    
-            $('body').css('overflow','hidden');
-            $('.m-login').css('overflow-y','scroll');
+            modalScr('hidden','scroll',mLogin);
         }
         function closeLogin(){
-            $('.m-login').hide(0);
+            let mLogin = document.querySelector('.m-login');
+            mLogin.style.display='none';
+            modalScr('scroll','hidden',mLogin);
+        }
+        function loadNav(){
+            let mNav = document.querySelector('.m-nav');
+            mNav.style.display='block';
+            modalScr('hidden','scroll',mNav);
+        }
+        function closeNav(){
+            let mNav = document.querySelector('.m-nav');
+            mNav.style.display='none';
+            modalScr('scroll','hidden',mNav);
+        }
+        function modalScr(item01,item02,item03){
+            document.querySelector('body').style.overflow=item01;
+            item03.style.overflowY = item02;
         }
     </script>
 </body>
