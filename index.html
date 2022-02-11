@@ -62,6 +62,18 @@
             color:#fff;
             opacity:0.3;
         }
+        .icons{
+            display:inline-block;
+            margin:0;
+            border:none;
+            padding:0;
+            background-repeat:no-repeat;
+            background-position:left top;
+            background-size:100% auto;
+            font-size:0;
+            font-style:normal;
+            vertical-align:middle;
+        }
 
         .skip-menu a{
             position:fixed;
@@ -158,12 +170,15 @@
         .header{
             position:relative;
             z-index:1000;
-            border-bottom:1px solid rgba(255,255,255,0.5);
-            padding:10px 0;
+            border-bottom:1px solid rgba(255,255,255,0.5);            
             background-color:#0e090a;
             color:#fff;
         }
-        h1{
+        .header .desk-container{
+            padding-top:10px;
+            padding-bottom:10px;
+        }
+        .header .desk-container h1{
             position:absolute;
             left:50%;
             top:50%;
@@ -256,7 +271,44 @@
 
 
 
-        .m-container{}
+        .m-container{
+            display:none;
+            flex-flow:row nowrap;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .m-container h1{
+            box-sizing:content-box;
+            width:120px;
+            padding-left:27px;
+            order:2;
+        }
+        .ticketing{
+            order:1;
+        }
+        .m-r-items{
+            order:3;
+        }
+
+
+
+
+
+        .icon-ticket{
+            width:30px;
+            height:30px;
+            background-image:url(./m-images/ico-m-ticket.png);
+        }
+        .icon-m-feed{
+            width:51px;
+            height:24px;
+            background-image:url(./m-images/ico_m_feed.png);
+        }
+        .icon-m-burger{
+            width:30px;
+            height:30px;
+            background-image:url(./m-images/ico-m-burger.png);
+        }
 
 
 
@@ -871,7 +923,7 @@
         }
 
         @media (max-width:1024px){
-            h1{               
+            .header .desk-container h1{               
                 left:20px;                
                 transform:translate(0,-50%);
             }
@@ -970,8 +1022,22 @@
             }
             .banner-top{display:none;}
 
+            .header{
+                position:fixed;
+                left:0;
+                right:0;
+                top:0;
+                border-bottom:none;                
+            }
+
             .header .desk-container{display:none;}
-            .header .m-container{display:block;}
+            .header .m-container{
+                display:flex;
+            }
+
+            .wrap>.movie-list{
+                padding-top:calc(40px + 55px);
+            }
 
             .benefit-list{
                 width:100%;
@@ -1194,7 +1260,17 @@
             <div class="container m-container">
                 <h1><a href="./index.html"><img src="./m-images/m-logo-white.png" alt="시작페이지로 이동"></a></h1>
                 <div class="ticketing">
-                    <a href="#"></a>
+                    <a href="#">
+                        <i class="icons icon-ticket">예매</i>
+                    </a>
+                </div>
+                <div class="m-r-items">
+                    <a href="#">
+                        <i class="icons icon-m-feed">피드</i>
+                    </a>
+                    <a href="#">
+                        <i class="icons icon-m-burger">메뉴</i>
+                    </a>
                 </div>
             </div>
         </header>
@@ -2732,6 +2808,12 @@
                 </div>                
             </div>
         </section>
+        <section class="bnb">
+            <div class="container bnb-container">
+                
+            </div>
+        </section>
+
         <footer class="footer">
             <div class="container">
                 <div class="in clearfix">
