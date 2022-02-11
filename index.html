@@ -3328,44 +3328,45 @@
 
 
         // 모바일 이벤트
+        // jQuery
+        // 로그인폼 열기
+        // $('#btn-ticket').click(function(){            
+        //     let loginCfm = confirm('로그인이 필요한 서비스입니다\n로그인 할까요?');
+        //     let loginEl = $('.m-login');
+        //     if(loginCfm){
+        //         mobileForm('hidden','block','scroll',loginEl)
+        //     }
+        // })
+
+        // 로그인폼 닫기
+        // $('.btn-close-login').click(function(){
+        //     let loginEl = $('.m-login');
+        //     mobileForm('scroll','none','hidden',loginEl);
+        // })       
+
+        // 네비게이션 열기
+        // $('.icon-m-burger').click(function(){
+        //     let navEl = $('.m-nav');
+        //     mobileForm('hidden','block','scroll',navEl);
+        // })
+
+        // 네비게이션 닫기
+        // $('.btn-close-nav').click(function(){
+        //     let navEl = $('.m-nav');
+        //     mobileForm('scroll','none','hidden',navEl);    
+        // })
         
-        let btnLogin = document.getElementById('btn-ticket');
-        let btnCloseLogin = document.querySelector('.btn-close-login')
-        let btnNav = document.querySelector('.icon-m-burger');
-        let btnCloseNav = document.querySelector('.btn-close-nav');
 
-        btnLogin.onclick = loadLogin;
-        btnCloseLogin.onclick = closeLogin;
-        btnNav.onclick = loadNav;
-        btnCloseNav.onclick = closeNav;
+        // function mobileForm(bodyValue,tarValue01,tarValue02,target){
+        //     $('body').css('overflow',bodyValue);
+        //     target.css({
+        //         'display':tarValue01,
+        //         'overflow-y':tarValue02,
+        //     })
+        // }
 
-        function loadLogin(){
-            let logCfm = confirm('로그인 후 사용가능합니다.\n로그인 하시겠습니까?');
-            let mLogin = document.querySelector('.m-login');
-            if(logCfm){
-                mLogin.style.display='block';
-            }    
-            modalScr('hidden','scroll',mLogin);
-        }
-        function closeLogin(){
-            let mLogin = document.querySelector('.m-login');
-            mLogin.style.display='none';
-            modalScr('scroll','hidden',mLogin);
-        }
-        function loadNav(){
-            let mNav = document.querySelector('.m-nav');
-            mNav.style.display='block';
-            modalScr('hidden','scroll',mNav);
-        }
-        function closeNav(){
-            let mNav = document.querySelector('.m-nav');
-            mNav.style.display='none';
-            modalScr('scroll','hidden',mNav);
-        }
-        function modalScr(item01,item02,item03){
-            document.querySelector('body').style.overflow=item01;
-            item03.style.overflowY = item02;
-        }
+        // Vanilla JS
+        
     </script>
 </body>
 </html>
