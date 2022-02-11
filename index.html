@@ -3367,6 +3367,18 @@
 
         // Vanilla JS
         
+            
+
+        function mobileForm(bodyOver,tarDis,tarOver,target){
+            document.querySelector('body').style.overflow=bodyOver;
+            target.style.display=tarDis;
+            target.style.overflowY=tarOver;
+        }
+
+
+        // 로그인폼 오픈
+
+        // document.querySelector('#btn-ticket').addEventListener('click',mobileForm('hidden','block','scroll',document.querySelector('.m-login')));
     </script>
 </body>
 </html>
