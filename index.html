@@ -169,7 +169,7 @@
 
         .header{
             position:relative;
-            z-index:1000;
+            z-index:9998;
             border-bottom:1px solid rgba(255,255,255,0.5);            
             background-color:#0e090a;
             color:#fff;
@@ -290,10 +290,6 @@
             order:3;
         }
 
-
-
-
-
         .icon-ticket{
             width:30px;
             height:30px;
@@ -308,6 +304,15 @@
             width:30px;
             height:30px;
             background-image:url(./m-images/ico-m-burger.png);
+        }
+
+        .m-login{
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;            
+            background-color:#fff;
         }
 
 
@@ -866,6 +871,50 @@
             position:relative;
         }
 
+
+        .bnb{
+            display:none;
+            position:fixed;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:6000;
+            padding:10px 0;
+            background-color:#fff;
+        }
+        .bnb ul{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .bnb ul a{
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .bnb .icons{
+            width:40px;
+            height:40px;
+        }
+        .m-ico-home{
+            background-image:url(./m-images/bnb-home-on.png);
+        }
+        .m-ico-store{
+            background-image:url(./m-images/bnb-store_new.png);
+        }
+        .m-ico-reserve{
+            background-image:url(./m-images/bnb-reserve_new.png);
+        }
+        .m-ico-event{
+            background-image:url(./m-images/bnb-event_new.png);
+        }
+        .m-ico-mymega{
+            background-image:url(./m-images/bnb-mymega_new.png);
+        }
+
+
         .footer{
             padding:30px;
             background-color:#503396;
@@ -1068,6 +1117,12 @@
             .megainfo-nav ul li p{
                 display:none;
             }
+            .bnb{
+                display:block;
+            }
+            .footer{
+                padding-bottom:110px;
+            }
         }    
         
         @media (max-width:640px){
@@ -1132,6 +1187,13 @@
             .megainfo-nav ul li .img-box a{
                 width:30px;
                 height:30px;
+            }
+            .bnb .icons{
+                width:30px;
+                height:30px;
+            }
+            .bnb span{
+                font-size:0.8em;
             }
         }
     </style>
@@ -1261,7 +1323,7 @@
                 <h1><a href="./index.html"><img src="./m-images/m-logo-white.png" alt="시작페이지로 이동"></a></h1>
                 <div class="ticketing">
                     <a href="#">
-                        <i class="icons icon-ticket">예매</i>
+                        <i class="icons icon-ticket" id="btn-ticket">예매</i>
                     </a>
                 </div>
                 <div class="m-r-items">
@@ -1272,6 +1334,9 @@
                         <i class="icons icon-m-burger">메뉴</i>
                     </a>
                 </div>
+            </div>
+            <div class="container m-login">
+                로그인창
             </div>
         </header>
 
@@ -2810,7 +2875,38 @@
         </section>
         <section class="bnb">
             <div class="container bnb-container">
-                
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="icons m-ico-home"></i>
+                            <span>홈</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icons m-ico-store"></i>
+                            <span>스토어</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icons m-ico-reserve"></i>
+                            <span>예매</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icons m-ico-event"></i>
+                            <span>이벤트</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icons m-ico-mymega"></i>
+                            <span>MY</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -2908,37 +3004,7 @@
                 $('.banner-top').slideUp();
             }
         })
-
-        // sub-nav call event
-        $('.nav>ul>li').on({
-            'mouseover':function(){
-                $('.sub-nav').css('display','none');
-                $(this).children('.sub-nav').css('display','block');
-            }
-        });
-
-        // sub nav close event
-        $('.sub-nav').on({
-            'mouseout':function(){
-                $(this).css('display','none');
-            }
-        })
-
-        // mo quick menu call event
-        $('.btn-mo-quick').on({
-            'click':function(){               
-                $('.wrap,.quick-nav').toggleClass('show-quick');
-            }
-        })
-
-
-        // mo nav call event
-        $('.btn-mo-nav').on({
-            'click':function(){               
-                $('.wrap,.nav').toggleClass('show-nav');
-            }
-        })
-
+        
         // window resize event
         $(window).resize(function(){
             let winWidth = $(this).width();
@@ -3090,6 +3156,19 @@
         function cuLoad(idxNum){
             $('#curation-ajax').load('curation.html #curation0' + idxNum);
         }
+
+
+
+        // 모바일 이벤트
+        $('#btn-ticket').on({
+            'click':loadLogin,
+        })
+
+        function loadLogin(){
+            let logCfm = confirm('로그인 후 사용가능합니다.\n로그인 하시겠습니까?');
+            
+        }
+
     </script>
 </body>
 </html>
